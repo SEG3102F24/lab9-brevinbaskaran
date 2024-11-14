@@ -24,7 +24,7 @@ class SecurityConfig {
     // Helper function to create a user
     private fun createUser(username: String, password: String) =
         User.withUsername(username)
-            .password("{noop}$password") // Using {noop} for plaintext password
+            .password("{noop}$password") 
             .roles("USER")
             .build()
 
@@ -32,8 +32,8 @@ class SecurityConfig {
     @Bean
     fun securityFilterChain(http: HttpSecurity): SecurityFilterChain {
         http
-            .authorizeRequests { auth -> auth.anyRequest().authenticated() }  // Secures all requests
-            .httpBasic()  // Enables HTTP Basic Authentication
+            .authorizeRequests { auth -> auth.anyRequest().authenticated() } 
+            .httpBasic() 
         return http.build()
     }
 }
